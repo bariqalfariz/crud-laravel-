@@ -13,3 +13,5 @@
 
 Route::resource('books','BookController');
 Route::post('/books/create','BookController@store');
+Route::get('/view/{id}', 'BookController@view');
+Route::get('/hapus/{id}', 'BookController@hapus');

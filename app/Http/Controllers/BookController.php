@@ -57,7 +57,8 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = book::find($id);
+        return view('books.view', compact('book'));
     }
 
     /**
@@ -92,5 +93,18 @@ class BookController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function view($id)
+    {
+        $data = Buku::find($id);
+        return view('view',['data' => $data]);
+    }
+
+    public function hapus($id)
+    {
+    	Buku::where('id', $id)
+    	->delete();
+    	return redirect('/books');
     }
 }
